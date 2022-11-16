@@ -5,33 +5,32 @@ import { cards } from "./assets/cards"
 
 function App() {
 
-
+  const [animals, setAnimals] = React.useState([...cards].sort(()=> Math.random() -0.5))
  
-  const sortedCards = cards.sort( ()=> Math.random()-0.5)
 
-  console.log(sortedCards)
-
-
-  const renderCards = sortedCards.map ( el => {
-    return (
+  
+  
+  const animalsMap = animals.map ( el => {
+    return (  
       <Card 
         name={el.name}
         key={el.id}
+        isActive={el.isActive}
       />
     )
   })
   
   
-  
-  
   return (
     <div className="App">
-      {renderCards}
+      {animalsMap}
       <h4>Shuffle</h4>
     </div>
 
 
   );
 }
+
+
 
 export default App;
